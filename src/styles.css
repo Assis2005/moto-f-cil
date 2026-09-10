@@ -176,7 +176,46 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background: var(--gradient-page);
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }
+
+@utility glass {
+  background-color: var(--glass-surface);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-surface-strong);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+}
+
+@utility field-input {
+  width: 100%;
+  border-radius: var(--radius);
+  background-color: color-mix(in oklab, white 70%, transparent);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--brand) 40%, transparent);
+  }
+}
+
