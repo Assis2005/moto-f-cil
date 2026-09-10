@@ -77,14 +77,38 @@
 
 :root {
   --radius: 0.625rem;
+
+  /* Vidro Urbano — paleta */
+  --brand: oklch(0.488 0.217 264.4);
+  --brand-foreground: oklch(0.99 0 0);
+  --accent-warm: oklch(0.769 0.163 70.1);
+  --ink: oklch(0.208 0.042 265.8);
+  --steel: oklch(0.446 0.037 257.3);
+  --success: oklch(0.53 0.13 158);
+  --success-soft: oklch(0.94 0.05 158);
+  --warning: oklch(0.55 0.13 70);
+  --warning-soft: oklch(0.95 0.06 85);
+  --danger: oklch(0.52 0.19 20);
+  --danger-soft: oklch(0.94 0.05 20);
+  --gradient-page: linear-gradient(
+    to bottom,
+    oklch(0.977 0.013 236.62),
+    oklch(0.967 0.001 286.375) 45%,
+    oklch(0.92 0.004 286.32)
+  );
+  --glass-surface: color-mix(in oklab, white 55%, transparent);
+  --glass-surface-strong: color-mix(in oklab, white 65%, transparent);
+  --glass-ring: color-mix(in oklab, var(--ink) 10%, transparent);
+
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.208 0.042 265.8);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.208 0.042 265.8);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --popover-foreground: oklch(0.208 0.042 265.8);
+  --primary: oklch(0.488 0.217 264.4);
+  --primary-foreground: oklch(0.99 0 0);
+
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
