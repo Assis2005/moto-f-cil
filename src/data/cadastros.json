@@ -1,0 +1,44 @@
+[
+  {
+    "id": "c-001",
+    "nome": "Carlos Mendes",
+    "cpf": "412.883.109-05",
+    "data": "2026-03-12",
+    "status": "pendente"
+  },
+  {
+    "id": "c-002",
+    "nome": "Ana Paula Reis",
+    "cpf": "208.554.771-33",
+    "data": "2026-03-11",
+    "status": "aprovado"
+  },
+  {
+    "id": "c-003",
+    "nome": "João Ferreira",
+    "cpf": "331.092.448-77",
+    "data": "2026-03-10",
+    "status": "reprovado"
+  },
+  {
+    "id": "c-004",
+    "nome": "Marina Souza",
+    "cpf": "156.230.889-21",
+    "data": "2026-03-10",
+    "status": "pendente"
+  },
+  {
+    "id": "c-005",
+    "nome": "Rafael Lima",
+    "cpf": "089.771.334-60",
+    "data": "2026-03-09",
+    "status": "aprovado"
+  },
+  {
+    "id": "c-006",
+    "nome": "Débora Nunes",
+    "cpf": "744.019.226-18",
+    "data": "2026-03-08",
+    "status": "aprovado"
+  }
+]
