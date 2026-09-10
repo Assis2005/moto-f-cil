@@ -10,9 +10,9 @@ export function StatCard({
   const toneClass =
     tone === "warning" ? "text-warning" : tone === "success" ? "text-success" : "text-ink";
   return (
-    <div className="glass rounded-xl p-4">
-      <p className="text-xs text-steel">{label}</p>
-      <p className={`mt-1 font-display text-2xl font-semibold ${toneClass}`}>{value}</p>
+    <div className="surface rounded-2xl p-5">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-steel">{label}</p>
+      <p className={`mt-2 font-display text-3xl font-semibold tracking-tight ${toneClass}`}>{value}</p>
     </div>
   );
 }

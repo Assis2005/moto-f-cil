@@ -1,48 +1,61 @@
-import { Link } from "@tanstack/react-router";
+import { Check } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import { brl } from "@/lib/format";
 import type { Plano } from "@/lib/types";
 
 export function PlanoCard({ plano }: { plano: Plano }) {
-  if (plano.destaque) {
-    return (
-      <article className="relative rounded-2xl bg-brand p-6 text-brand-foreground ring-1 ring-brand/40">
-        {plano.selo ? (
-          <span className="absolute -top-2 right-4 rounded-full bg-accent-warm px-2 py-0.5 text-xs font-semibold text-ink">
-            {plano.selo}
-          </span>
-        ) : null}
-        <p className="font-display font-semibold">{plano.nome}</p>
-        <p className="mt-2 font-display text-3xl font-semibold">
-          {brl(plano.preco)}
-          <span className="text-base font-medium text-brand-foreground/70">{plano.periodo}</span>
-        </p>
-        <ul className="mt-4 space-y-2 text-sm text-brand-foreground/80">
-          {plano.inclusos.map((item) => (
-            <li key={item}>· {item}</li>
-          ))}
-        </ul>
-        <Link
-          to="/cadastro"
-          className="mt-5 inline-flex w-full items-center justify-center rounded-lg bg-white/10 px-4 py-2.5 text-sm font-medium ring-1 ring-white/20"
-        >
-          Assinar {plano.nome.toLowerCase()}
-        </Link>
-      </article>
-    );
-  }
-
   return (
-    <article className="glass rounded-2xl p-6">
-      <p className="font-display font-semibold">{plano.nome}</p>
-      <p className="mt-2 font-display text-3xl font-semibold">
-        {brl(plano.preco)}
-        <span className="text-base font-medium text-steel">{plano.periodo}</span>
+    <article
+      className={cn(
+        "relative flex h-full flex-col rounded-2xl p-6",
+        plano.destaque
+          ? "bg-brand text-brand-foreground shadow-[0_16px_40px_oklch(0.36_0.07_250_/_0.28)]"
+          : "surface",
+      )}
+    >
+      {plano.selo ? (
+        <span
+          className={cn(
+            "absolute -top-2.5 right-5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold",
+            plano.destaque ? "bg-accent-warm text-ink" : "bg-secondary text-ink",
+          )}
+        >
+          {plano.selo}
+        </span>
+      ) : null}
+      <p className="font-display text-sm font-semibold uppercase tracking-[0.12em] opacity-80">
+        {plano.nome}
       </p>
-      <ul className="mt-4 space-y-2 text-sm text-steel">
+      <p className="mt-3 font-display text-3xl font-semibold tracking-tight">
+        {brl(plano.preco)}
+        <span
+          className={cn(
+            "text-base font-medium",
+            plano.destaque ? "text-brand-foreground/70" : "text-steel",
+          )}
+        >
+          {plano.periodo}
+        </span>
+      </p>
+      <ul className={cn("mt-5 flex-1 space-y-2.5 text-sm", plano.destaque ? "text-brand-foreground/85" : "text-steel")}>
         {plano.inclusos.map((item) => (
-          <li key={item}>· {item}</li>
+          <li key={item} className="flex items-start gap-2">
+            <Check className="mt-0.5 size-4 shrink-0" strokeWidth={2.2} />
+            <span>{item}</span>
+          </li>
         ))}
       </ul>
+      <a
+        href="/cadastro"
+        className={cn(
+          buttonVariants({ variant: plano.destaque ? "secondary" : "default" }),
+          "mt-6 w-full font-semibold",
+          plano.destaque && "bg-white text-brand hover:bg-white/90",
+        )}
+      >
+        Assinar {plano.nome.toLowerCase()}
+      </a>
     </article>
   );
 }

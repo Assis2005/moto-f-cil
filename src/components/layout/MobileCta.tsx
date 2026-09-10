@@ -1,14 +1,12 @@
-import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 export function MobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-white/70 p-3 backdrop-blur-md md:hidden">
-      <Link
-        to="/cadastro"
-        className="flex w-full items-center justify-center rounded-lg bg-accent-warm px-4 py-3 text-sm font-semibold text-ink"
-      >
-        Quero Alugar uma Moto
-      </Link>
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/90 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-xl md:hidden">
+      <a href="/cadastro" className={cn(buttonVariants({ size: "lg" }), "w-full font-semibold")}>
+        Quero alugar uma moto
+      </a>
     </div>
   );
 }

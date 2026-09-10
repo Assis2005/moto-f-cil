@@ -1,5 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { Check } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
+import { CtaLink } from "@/components/ui-kit/CtaLink";
 
 export const Route = createFileRoute("/sucesso")({
   head: () => ({
@@ -21,30 +23,24 @@ function SucessoPage() {
   return (
     <SiteLayout>
       <section className="flex min-h-[60vh] items-center justify-center py-16">
-        <div className="glass w-full max-w-lg rounded-2xl p-8 text-center">
-          <div className="mx-auto grid size-12 place-items-center rounded-full bg-success-soft font-display text-xl font-semibold text-success">
-            ✓
+        <div className="surface w-full max-w-lg rounded-3xl p-8 text-center md:p-10">
+          <div className="mx-auto grid size-14 place-items-center rounded-full bg-success-soft text-success">
+            <Check className="size-7" strokeWidth={2.4} />
           </div>
-          <h1 className="mt-5 text-balance font-display text-2xl font-semibold">
-            Cadastro enviado com sucesso e está em análise.
+          <h1 className="mt-5 text-balance font-display text-2xl font-semibold tracking-tight md:text-3xl">
+            Cadastro enviado e em análise.
           </h1>
-          <p className="mt-3 text-pretty text-sm text-steel">
+          <p className="mt-3 text-pretty text-sm leading-relaxed text-steel">
             Nossa equipe confere seus documentos e responde em até 24 horas úteis pelo WhatsApp
             informado.
           </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/motos"
-              className="rounded-lg bg-brand px-5 py-2.5 text-sm font-medium text-brand-foreground ring-1 ring-brand/40"
-            >
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <CtaLink to="/motos" className="font-semibold">
               Ver motos disponíveis
-            </Link>
-            <Link
-              to="/"
-              className="rounded-lg px-5 py-2.5 text-sm font-medium text-steel ring-1 ring-ink/10"
-            >
+            </CtaLink>
+            <CtaLink to="/" variant="outline" className="font-semibold">
               Voltar ao início
-            </Link>
+            </CtaLink>
           </div>
         </div>
       </section>

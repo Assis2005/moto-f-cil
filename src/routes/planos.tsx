@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Check } from "lucide-react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { PlanoCard } from "@/components/ui-kit/PlanoCard";
+import { PageHeader } from "@/components/ui-kit/Section";
 import { getPlanos } from "@/lib/mock-api";
 
 export const Route = createFileRoute("/planos")({
@@ -34,27 +36,30 @@ function PlanosPage() {
 
   return (
     <SiteLayout>
-      <section className="py-10">
-        <h1 className="max-w-[24ch] text-balance font-display text-3xl font-semibold">
-          Planos e valores
-        </h1>
-        <p className="mt-2 max-w-[52ch] text-pretty text-steel">
-          Preço fechado, sem taxa escondida. Você troca de plano quando quiser, a partir do
-          próximo ciclo.
-        </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+      <section className="py-10 md:py-14">
+        <PageHeader
+          eyebrow="Contrato"
+          title="Planos e valores"
+          description="Preço fechado, sem taxa escondida. Você troca de plano quando quiser, a partir do próximo ciclo."
+        />
+        <div className="mt-8 grid gap-4 pt-2 sm:grid-cols-3">
           {planos.map((plano) => (
             <PlanoCard key={plano.id} plano={plano} />
           ))}
         </div>
       </section>
 
-      <section className="py-4 pb-16">
-        <div className="glass rounded-2xl p-6">
-          <h2 className="font-display text-xl font-semibold">Incluso em todos os planos</h2>
-          <ul className="mt-4 grid gap-2 text-sm text-steel sm:grid-cols-2">
+      <section className="pb-16">
+        <div className="surface rounded-2xl p-6 md:p-8">
+          <h2 className="font-display text-xl font-semibold tracking-tight">
+            Incluso em todos os planos
+          </h2>
+          <ul className="mt-5 grid gap-3 text-sm text-steel sm:grid-cols-2">
             {inclusosGerais.map((item) => (
-              <li key={item}>· {item}</li>
+              <li key={item} className="flex items-start gap-2">
+                <Check className="mt-0.5 size-4 shrink-0 text-brand" strokeWidth={2.2} />
+                {item}
+              </li>
             ))}
           </ul>
         </div>

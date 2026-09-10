@@ -1,43 +1,51 @@
 import { Link } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 const links = [
-  { to: "/motos", label: "Motos" },
-  { to: "/planos", label: "Planos" },
-  { to: "/", label: "Como funciona", hash: "como-funciona" },
-  { to: "/admin", label: "Painel" },
-] as const;
+  { to: "/motos" as const, label: "Motos" },
+  { to: "/planos" as const, label: "Planos" },
+  { href: "/#como-funciona", label: "Como funciona" },
+  { to: "/admin" as const, label: "Painel" },
+];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-30 border-b border-ink/10 bg-white/50 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid size-7 place-items-center rounded-md bg-brand font-display text-sm font-semibold text-brand-foreground">
+    <header className="sticky top-0 z-30 border-b border-border/80 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <Link to="/" className="flex items-center gap-2.5">
+          <span className="grid size-8 place-items-center rounded-lg bg-brand font-display text-sm font-bold text-brand-foreground">
             V
           </span>
-          <span className="font-display font-semibold tracking-tight">
+          <span className="font-display text-[15px] font-semibold tracking-tight">
             Viagem<span className="text-brand">Mot</span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-steel md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              hash={"hash" in l ? l.hash : undefined}
-              activeProps={{ className: "text-ink" }}
-              className="transition-colors hover:text-ink"
-            >
-              {l.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-1 text-sm md:flex">
+          {links.map((l) =>
+            "href" in l ? (
+              <a
+                key={l.label}
+                href={l.href}
+                className="rounded-lg px-3 py-1.5 font-medium text-steel transition-colors hover:bg-secondary hover:text-ink"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.label}
+                to={l.to}
+                activeProps={{ className: "text-ink bg-secondary" }}
+                className="rounded-lg px-3 py-1.5 font-medium text-steel transition-colors hover:bg-secondary hover:text-ink"
+              >
+                {l.label}
+              </Link>
+            ),
+          )}
         </nav>
-        <Link
-          to="/cadastro"
-          className="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-medium text-brand-foreground ring-1 ring-brand/40"
-        >
+        <a href="/cadastro" className={cn(buttonVariants({ size: "sm" }), "font-semibold")}>
           Quero alugar
-        </Link>
+        </a>
       </div>
     </header>
   );

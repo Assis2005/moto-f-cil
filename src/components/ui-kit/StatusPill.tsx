@@ -28,7 +28,9 @@ const cadastroTone: Record<CadastroStatus, string> = {
 
 export function MotoStatusPill({ status }: { status: MotoStatus }) {
   return (
-    <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${motoTone[status]}`}>
+    <span
+      className={`rounded-full px-2.5 py-1 text-[11px] font-semibold shadow-sm ${motoTone[status]}`}
+    >
       {motoLabels[status]}
     </span>
   );
@@ -36,7 +38,7 @@ export function MotoStatusPill({ status }: { status: MotoStatus }) {
 
 export function CadastroStatusPill({ status }: { status: CadastroStatus }) {
   return (
-    <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${cadastroTone[status]}`}>
+    <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold ${cadastroTone[status]}`}>
       {cadastroLabels[status]}
     </span>
   );
