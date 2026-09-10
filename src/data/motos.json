@@ -1,0 +1,56 @@
+[
+  {
+    "id": "cg-160",
+    "modelo": "Honda CG 160",
+    "ano": 2023,
+    "cilindrada": "160cc",
+    "valorSemanal": 139,
+    "valorMensal": 420,
+    "status": "disponivel"
+  },
+  {
+    "id": "fazer-250",
+    "modelo": "Yamaha Fazer 250",
+    "ano": 2024,
+    "cilindrada": "250cc",
+    "valorSemanal": 199,
+    "valorMensal": 580,
+    "status": "disponivel"
+  },
+  {
+    "id": "xre-190",
+    "modelo": "Honda XRE 190",
+    "ano": 2023,
+    "cilindrada": "185cc",
+    "valorSemanal": 159,
+    "valorMensal": 470,
+    "status": "ultima_unidade"
+  },
+  {
+    "id": "biz-125",
+    "modelo": "Honda Biz 125",
+    "ano": 2024,
+    "cilindrada": "125cc",
+    "valorSemanal": 129,
+    "valorMensal": 389,
+    "status": "disponivel"
+  },
+  {
+    "id": "factor-150",
+    "modelo": "Yamaha Factor 150",
+    "ano": 2024,
+    "cilindrada": "150cc",
+    "valorSemanal": 149,
+    "valorMensal": 440,
+    "status": "reservada"
+  },
+  {
+    "id": "cg-160-2022",
+    "modelo": "Honda CG 160 Start",
+    "ano": 2022,
+    "cilindrada": "160cc",
+    "valorSemanal": 119,
+    "valorMensal": 360,
+    "status": "disponivel"
+  }
+]

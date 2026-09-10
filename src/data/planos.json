@@ -1,0 +1,42 @@
+[
+  {
+    "id": "semanal",
+    "nome": "Semanal",
+    "preco": 139,
+    "periodo": "/sem",
+    "destaque": false,
+    "inclusos": [
+      "Seguro básico incluso",
+      "Manutenção de urgência",
+      "Suporte por WhatsApp",
+      "Troca de óleo a cada 30 dias"
+    ]
+  },
+  {
+    "id": "mensal",
+    "nome": "Mensal",
+    "preco": 420,
+    "periodo": "/mês",
+    "destaque": true,
+    "selo": "Mais escolhido",
+    "inclusos": [
+      "Seguro completo incluso",
+      "Moto reserva em falha",
+      "Sem taxa de aluguel",
+      "Manutenção preventiva inclusa"
+    ]
+  },
+  {
+    "id": "quinzenal",
+    "nome": "Quinzenal",
+    "preco": 260,
+    "periodo": "/quinzena",
+    "destaque": false,
+    "inclusos": [
+      "Seguro básico incluso",
+      "Manutenção de urgência",
+      "Troca de pneu grátis",
+      "Suporte por WhatsApp"
+    ]
+  }
+]

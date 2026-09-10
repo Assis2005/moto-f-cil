@@ -1,0 +1,22 @@
+[
+  {
+    "numero": "1",
+    "titulo": "Escolha a moto",
+    "descricao": "Veja a frota disponível e o valor semanal ou mensal."
+  },
+  {
+    "numero": "2",
+    "titulo": "Envie seu cadastro",
+    "descricao": "Dados, endereço, perfil de entregador e documentos pelo celular."
+  },
+  {
+    "numero": "3",
+    "titulo": "Análise em 24h",
+    "descricao": "Nossa equipe confere tudo e avisa o resultado no WhatsApp."
+  },
+  {
+    "numero": "4",
+    "titulo": "Retire e rode",
+    "descricao": "Assinatura digital do contrato e a moto é sua para trabalhar."
+  }
+]

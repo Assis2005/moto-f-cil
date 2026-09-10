@@ -19,6 +19,19 @@
  */
 
 @theme inline {
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent-warm: var(--accent-warm);
+  --color-ink: var(--ink);
+  --color-steel: var(--steel);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -26,6 +39,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -63,14 +77,38 @@
 
 :root {
   --radius: 0.625rem;
+
+  /* Vidro Urbano — paleta */
+  --brand: oklch(0.488 0.217 264.4);
+  --brand-foreground: oklch(0.99 0 0);
+  --accent-warm: oklch(0.769 0.163 70.1);
+  --ink: oklch(0.208 0.042 265.8);
+  --steel: oklch(0.446 0.037 257.3);
+  --success: oklch(0.53 0.13 158);
+  --success-soft: oklch(0.94 0.05 158);
+  --warning: oklch(0.55 0.13 70);
+  --warning-soft: oklch(0.95 0.06 85);
+  --danger: oklch(0.52 0.19 20);
+  --danger-soft: oklch(0.94 0.05 20);
+  --gradient-page: linear-gradient(
+    to bottom,
+    oklch(0.977 0.013 236.62),
+    oklch(0.967 0.001 286.375) 45%,
+    oklch(0.92 0.004 286.32)
+  );
+  --glass-surface: color-mix(in oklab, white 55%, transparent);
+  --glass-surface-strong: color-mix(in oklab, white 65%, transparent);
+  --glass-ring: color-mix(in oklab, var(--ink) 10%, transparent);
+
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.208 0.042 265.8);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.208 0.042 265.8);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
+  --popover-foreground: oklch(0.208 0.042 265.8);
+  --primary: oklch(0.488 0.217 264.4);
+  --primary-foreground: oklch(0.99 0 0);
+
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
   --muted: oklch(0.968 0.007 247.896);
@@ -138,7 +176,46 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background: var(--gradient-page);
+    background-attachment: fixed;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }
+
+@utility glass {
+  background-color: var(--glass-surface);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+}
+
+@utility glass-strong {
+  background-color: var(--glass-surface-strong);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+}
+
+@utility field-input {
+  width: 100%;
+  border-radius: var(--radius);
+  background-color: color-mix(in oklab, white 70%, transparent);
+  box-shadow: 0 0 0 1px var(--glass-ring);
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+
+  &:focus {
+    box-shadow: 0 0 0 2px color-mix(in oklab, var(--brand) 40%, transparent);
+  }
+}
+

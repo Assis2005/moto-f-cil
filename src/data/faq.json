@@ -1,0 +1,26 @@
+[
+  {
+    "pergunta": "Preciso ter CNH categoria A?",
+    "resposta": "Sim. A CNH precisa estar válida, na categoria A, e sem bloqueios ativos."
+  },
+  {
+    "pergunta": "Quanto tempo leva a análise cadastral?",
+    "resposta": "Até 24 horas úteis após o envio dos documentos completos."
+  },
+  {
+    "pergunta": "A manutenção está inclusa?",
+    "resposta": "Sim. Revisões preventivas e manutenção de urgência entram no valor do plano."
+  },
+  {
+    "pergunta": "Posso trocar de plano depois?",
+    "resposta": "Pode. A troca vale a partir do próximo ciclo de pagamento, sem multa."
+  },
+  {
+    "pergunta": "E se a moto quebrar durante uma entrega?",
+    "resposta": "Acione o suporte. No plano mensal você recebe moto reserva enquanto reparamos."
+  },
+  {
+    "pergunta": "Preciso pagar caução?",
+    "resposta": "Cobramos uma entrada a partir de R$ 300, devolvida ao fim do contrato sem avarias."
+  }
+]
