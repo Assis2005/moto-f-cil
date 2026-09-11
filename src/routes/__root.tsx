@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { RentalFlowProvider } from "@/hooks/useRentalFlow";
+import { RentalFlowModal } from "@/components/rental/RentalFlowModal";
+
 
 function NotFoundComponent() {
   return (
@@ -123,8 +126,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <RentalFlowProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <RentalFlowModal />
+      </RentalFlowProvider>
     </QueryClientProvider>
   );
 }
+

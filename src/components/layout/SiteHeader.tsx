@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { useRentalFlow } from "@/hooks/useRentalFlow";
 
 const links = [
   { to: "/motos" as const, label: "Motos" },
@@ -10,6 +11,8 @@ const links = [
 ];
 
 export function SiteHeader() {
+  const { openRentalFlow } = useRentalFlow();
+
   return (
     <header className="sticky top-0 z-30 border-b border-border/80 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
@@ -43,10 +46,15 @@ export function SiteHeader() {
             ),
           )}
         </nav>
-        <a href="/cadastro" className={cn(buttonVariants({ size: "sm" }), "font-semibold")}>
+        <button
+          type="button"
+          onClick={() => openRentalFlow()}
+          className={cn(buttonVariants({ size: "sm" }), "font-semibold shadow-sm")}
+        >
           Quero alugar
-        </a>
+        </button>
       </div>
     </header>
   );
 }
+

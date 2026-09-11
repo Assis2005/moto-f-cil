@@ -2,8 +2,11 @@ import { getMotoImage } from "@/data/moto-images";
 import { brl } from "@/lib/format";
 import type { Moto } from "@/lib/types";
 import { MotoStatusPill } from "./StatusPill";
+import { useRentalFlow } from "@/hooks/useRentalFlow";
 
 export function MotoCard({ moto }: { moto: Moto }) {
+  const { openRentalFlow } = useRentalFlow();
+
   return (
     <article className="group surface overflow-hidden rounded-2xl transition-shadow duration-200 hover:shadow-[0_12px_32px_oklch(0.23_0.035_255_/_0.08)]">
       <div className="relative overflow-hidden">
@@ -32,14 +35,16 @@ export function MotoCard({ moto }: { moto: Moto }) {
             </p>
             <p className="text-sm text-steel">{brl(moto.valorMensal)}/mês</p>
           </div>
-          <a
-            href="/cadastro"
-            className="text-sm font-semibold text-brand transition-colors hover:text-ink"
+          <button
+            type="button"
+            onClick={() => openRentalFlow(moto)}
+            className="rounded-xl bg-brand px-3.5 py-2 text-sm font-semibold text-white shadow-sm transition-all hover:bg-brand/90 active:scale-95"
           >
-            Alugar
-          </a>
+            Alugar esta moto
+          </button>
         </div>
       </div>
     </article>
   );
 }
+

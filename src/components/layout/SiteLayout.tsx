@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { MobileCta } from "./MobileCta";
+import { FloatingInstagram } from "./FloatingInstagram";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   return (
@@ -10,6 +11,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-24 md:pb-4">{children}</main>
       <SiteFooter />
       <MobileCta />
+      <FloatingInstagram />
     </div>
   );
 }
+

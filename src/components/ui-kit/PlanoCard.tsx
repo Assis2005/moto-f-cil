@@ -3,8 +3,11 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { brl } from "@/lib/format";
 import type { Plano } from "@/lib/types";
+import { useRentalFlow } from "@/hooks/useRentalFlow";
 
 export function PlanoCard({ plano }: { plano: Plano }) {
+  const { openRentalFlow } = useRentalFlow();
+
   return (
     <article
       className={cn(
@@ -46,16 +49,18 @@ export function PlanoCard({ plano }: { plano: Plano }) {
           </li>
         ))}
       </ul>
-      <a
-        href="/cadastro"
+      <button
+        type="button"
+        onClick={() => openRentalFlow()}
         className={cn(
           buttonVariants({ variant: plano.destaque ? "secondary" : "default" }),
-          "mt-6 w-full font-semibold",
+          "mt-6 w-full font-semibold cursor-pointer",
           plano.destaque && "bg-white text-brand hover:bg-white/90",
         )}
       >
         Assinar {plano.nome.toLowerCase()}
-      </a>
+      </button>
     </article>
   );
 }
+

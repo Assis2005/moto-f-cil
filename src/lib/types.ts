@@ -65,3 +65,55 @@ export interface CadastroPayload {
     comprovanteResidencia?: string;
   };
 }
+
+export type SolicitacaoStatus =
+  | "Nova"
+  | "Em análise"
+  | "Aguardando informações"
+  | "Proposta enviada"
+  | "Aprovada"
+  | "Recusada"
+  | "Aluguel concluído"
+  | "Cancelada";
+
+export interface HistoricoAlteracao {
+  id: string;
+  data: string;
+  descricao: string;
+  autor?: string | undefined;
+}
+
+export interface SolicitacaoAluguel {
+  id: string; // Ex: SOL-84920
+  dataCriacao: string;
+  status: SolicitacaoStatus;
+  
+  // Etapa 1 — Informações básicas
+  nome: string;
+  whatsapp: string;
+  email: string;
+  cidadeUf: string;
+
+  // Etapa 2 — Informações do aluguel
+  motoId?: string | undefined;
+  motoModelo: string;
+  dataRetirada: string;
+  periodo: string;
+  finalidade: string;
+  observacoes?: string | undefined;
+
+  // Etapa 3 — Perfil do interessado
+  possuiCnhA: string;
+  tempoHabilitacao: string;
+  faixaEtaria: string;
+  cidadeUso: string;
+  experienciaEntregas?: string | undefined;
+
+  // Painel Administrativo
+  observacoesInternas?: string | undefined;
+  historico: HistoricoAlteracao[];
+}
+
+export type SolicitacaoPayload = Omit<SolicitacaoAluguel, "id" | "dataCriacao" | "status" | "historico" | "observacoesInternas">;
+
+
